@@ -11,7 +11,7 @@ class Db {
   }
  private function connect(){
     $db_host = "localhost";
-    $db_name = "final";
+    $db_name = "pdo_db";
     $db_user = "root";
     $db_pass = "";
 
