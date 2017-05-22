@@ -4,7 +4,6 @@ $objDb = new Db();
 $db = $objDb->database;
 ?>
 
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,6 +11,10 @@ $db = $objDb->database;
     <title>หน้าหลัก</title>
   </head>
   <body>
+
+    <?php
+      echo "Hello";
+    ?>
 
   </body>
 </html>

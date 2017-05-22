@@ -1,5 +1,5 @@
 <?php
-//C:\Xampp\htdocs\basic\pdo\libs\Db.php
+//D:\Program\xampp\htdocs\yii-framework\pdo_crudlibs\Db.php
 class Db {
   public $database;
   public function __construct(){
@@ -20,7 +20,7 @@ class Db {
         $this->database->exec("SET CHARACTER SET utf8");
     }
     catch (PDOException $e) {
-        echo $e->getMessage();
+        echo "พบปัญหา : ".$e->getMessage();
     }
   }
   private function disconnect(){
