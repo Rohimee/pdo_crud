@@ -23,5 +23,9 @@ class Db {
         echo $e->getMessage();
     }
   }
+  private function disconnect(){
+      $this->database = null;
+    }
+  }
 
 ?>

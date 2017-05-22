@@ -1,3 +1,10 @@
+<?php
+require_once("libs/Db.php");
+$objDb = new Db();
+$db = $objDb->database;
+?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
