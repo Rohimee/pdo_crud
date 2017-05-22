@@ -12,25 +12,25 @@ $db = $objDb->database;
   </head>
   <body>
 
-    <table border="1" width="500" height="200">
+    <table border="1" width="500" height="70">
       <thead>
         <tr>
           <td>#</td>
           <td>ชื่อ</td>
           <td>นามสกุล</td>
           <td>สถานะ</td>
-          <td>ดูข้อมูล</td>
           <td>แกไข</td>
           <td>ลบ</td>
         </tr>
       </thead>
       <tbody>
         <?php
-        $query = $db->prepare("SELECT * FROM member");
-        $query->execute(); //ประมวลผลคำสั่ง sql
+        $query = $db->prepare("SELECT * FROM member WHERE id = :id");
 
-        if($query->rowCount() > 0){ //rowCount เช็คจำนวนแถวที่ได้มา
-        while($row = $query->fetch(PDO::FETCH_ASSOC)){ //ดึงข้อมูลแต่ละรอบใส่ใน $row
+        $query->execute([ "id" => $_GET['id'],]);
+
+        if($query->rowCount() > 0){
+          $row = $query->fetch(PDO::FETCH_ASSOC);
 
 
         ?>
@@ -45,17 +45,16 @@ $db = $objDb->database;
               echo "นักศึกษา";
             }
            ?></td>
-           <td><a href="view.php?id=<?= $row['id']; ?>">เรียกดู</a></td>
-           <td><a href="update.php?id=<?= $row['id']; ?>">แก้ไข</a></td>
-          <td><a href="delete.php?id=<?= $row['id']; ?>" onclick="return confirm('คุณแน่ใจหรือไม่')">ลบ</a></td>
+           <td><a href="#">แก้ไข</a></td>
+          <td><a href="#">ลบ</a></td>
         </tr>
 
         <?php
             }
-          }
         ?>
       </tbody>
     </table>
-
+    <br>
+    <a href="index.php">ย้อนกลับ</a>
   </body>
 </html>
